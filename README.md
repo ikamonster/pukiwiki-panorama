@@ -8,7 +8,9 @@
 
 ## インストール
 
-panorama.inc.php を PukiWiki の plugin ディレクトリに配置してください。
+下記GitHubページからダウンロードした panorama.inc.php を PukiWiki の plugin ディレクトリに配置してください。
+
+[https://github.com/ikamonster/pukiwiki-panorama](https://github.com/ikamonster/pukiwiki-panorama)
 
 ## 使い方
 
