@@ -1,7 +1,7 @@
 <?php
 /*
 PukiWiki - Yet another WikiWikiWeb clone.
-panorama.inc.php, v1.00 2020 M.Taniguchi
+panorama.inc.php, v1.0.1 2020 M.Taniguchi
 License: GPL v3 or (at your option) any later version
 
 6枚のキューブマップ画像をパノラマ表示するプラグイン。
@@ -129,19 +129,19 @@ EOT;
 	}
 
 	$body .= <<< EOT
-<div class="_p_panorama" id="_p_panorama-${included}">
-	<div class="_p_panorama_cube" id="_p_panorama_cube-${included}">
-		<div class="_p_panorama_front"  style="width:${size}px;height:${size}px;transform:translate3d(-${hsize}px,-${hsize}px,${hsize}px) rotateY(180deg);background-image:url('${image[0]}')"></div>
-		<div class="_p_panorama_back"   style="width:${size}px;height:${size}px;transform:translate3d(-${hsize}px,-${hsize}px,-${hsize}px);background-image:url('${image[1]}');"></div>
-		<div class="_p_panorama_left"   style="width:${size}px;height:${size}px;transform:translate3d(-${size}px,-${hsize}px,0) rotateY(90deg);background-image:url('${image[3]}')"></div>
-		<div class="_p_panorama_right"  style="width:${size}px;height:${size}px;transform:translate3d(0,-${hsize}px,0) rotateY(-90deg);background-image:url('${image[2]}')"></div>
-		<div class="_p_panorama_top"    style="width:${size}px;height:${size}px;transform:translate3d(-${hsize}px,-${size}px,0) rotateX(90deg) rotateY(180deg);background-image:url('${image[4]}')"></div>
-		<div class="_p_panorama_bottom" style="width:${size}px;height:${size}px;transform:translate3d(-${hsize}px,0,0) rotateX(-90deg) rotateY(180deg);background-image:url('${image[5]}')"></div>
+<div class="_p_panorama" id="_p_panorama-{$included}">
+	<div class="_p_panorama_cube" id="_p_panorama_cube-{$included}">
+		<div class="_p_panorama_front"  style="width:{$size}px;height:{$size}px;transform:translate3d(-{$hsize}px,-{$hsize}px,{$hsize}px) rotateY(180deg);background-image:url('{$image[0]}')"></div>
+		<div class="_p_panorama_back"   style="width:{$size}px;height:{$size}px;transform:translate3d(-{$hsize}px,-{$hsize}px,-{$hsize}px);background-image:url('{$image[1]}');"></div>
+		<div class="_p_panorama_left"   style="width:{$size}px;height:{$size}px;transform:translate3d(-{$size}px,-{$hsize}px,0) rotateY(90deg);background-image:url('{$image[3]}')"></div>
+		<div class="_p_panorama_right"  style="width:{$size}px;height:{$size}px;transform:translate3d(0,-{$hsize}px,0) rotateY(-90deg);background-image:url('{$image[2]}')"></div>
+		<div class="_p_panorama_top"    style="width:{$size}px;height:{$size}px;transform:translate3d(-{$hsize}px,-{$size}px,0) rotateX(90deg) rotateY(180deg);background-image:url('{$image[4]}')"></div>
+		<div class="_p_panorama_bottom" style="width:{$size}px;height:{$size}px;transform:translate3d(-{$hsize}px,0,0) rotateX(-90deg) rotateY(180deg);background-image:url('{$image[5]}')"></div>
 	</div>
-	<div class="_p_panorama_pad" id="_p_panorama_pad-${included}"></div>
+	<div class="_p_panorama_pad" id="_p_panorama_pad-{$included}"></div>
 </div>
 <script>
-new __PluginPanorama__(${included}, ${w}, ${h}, ${fov}, ${rot}, ${auto}, ${autoResume});
+new __PluginPanorama__({$included}, {$w}, {$h}, {$fov}, {$rot}, {$auto}, {$autoResume});
 </script>
 EOT;
 
