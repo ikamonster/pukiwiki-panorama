@@ -1,7 +1,7 @@
 <?php
 /*
 PukiWiki - Yet another WikiWikiWeb clone.
-panorama.inc.php, v1.0.1 2020 M.Taniguchi
+panorama.inc.php, v1.0.2 2020 M.Taniguchi
 License: GPL v3 or (at your option) any later version
 
 6枚のキューブマップ画像をパノラマ表示するプラグイン。
@@ -122,13 +122,11 @@ function plugin_panorama_convert() {
 }
 </style>
 
-<script>
-"use strict";var __PluginPanorama__=function(t,e,a,n,o,i,s){const d=this;this.id=t,this.maxW=e,this.maxH=a,this.w=0,this.h=0,this.fov=n,this.perspective=521,this.rotY=this.rotY2=o,this.rotX=this.rotX2=0,this.auto=i,this.container=document.getElementById("_p_panorama-"+this.id),this.pad=document.getElementById("_p_panorama_pad-"+this.id),this.cube=document.getElementById("_p_panorama_cube-"+this.id),this.padStartX=0,this.padStartY=0,this.padEndX=0,this.padEndY=0,this.padOn=!1,this.time=0,this.autoResume=0,this.autoResumeTime=s,d.onResize(),d.pad.addEventListener("mousedown",function(t){d.onMove(t,!0)},{passive:!1}),d.pad.addEventListener("touchstart",function(t){d.onMove(t,!0)},{passive:!1}),d.pad.addEventListener("mousemove",function(t){d.onMove(t,!1)},{passive:!1}),d.pad.addEventListener("touchmove",function(t){d.onMove(t,!1)},{passive:!1}),d.pad.addEventListener("mouseup",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("touchend",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("mouseout",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("mouseleave",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("touchleave",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("touchcancel",function(t){d.onMoveEnd(t)},{passive:!0}),window.addEventListener("resize",function(t){d.onResize(t)}),window.addEventListener("load",function(){requestAnimationFrame(function(t){d.Update(t)})})};__PluginPanorama__.prototype.Update=function(t){const e=this;e.time||(e.time=t-1e3/60);var a=Math.min(t-e.time,100);e.time=t,!e.padOn&&e.auto&&(e.autoResume-=a,e.autoResume<=0&&(e.rotY+=360*e.auto/60*a/1e3,e.rotX-=e.rotX*a/1e4)),e.rotY2+=(e.rotY-e.rotY2)*a/50,e.rotX2+=(e.rotX-e.rotX2)*a/50,e.cube.style.transform="translate3d("+.5*e.w+"px,"+.5*e.h+"px,"+e.perspective+"px) rotateX("+e.rotX2+"deg) rotateY("+(e.rotY2+180)+"deg)",requestAnimationFrame(function(t){e.Update(t)})},__PluginPanorama__.prototype.onResize=function(t){const e=this;var a=Math.min(e.maxW,e.container.clientWidth);e.w!=a&&(e.w=Math.min(e.maxW,e.container.clientWidth),e.h=e.w*e.maxH/e.maxW,e.perspective=Math.pow(.5*e.w*(.5*e.w)+.5*e.h*(.5*e.h),.5)/Math.tan(e.fov*Math.PI/360),e.container.style.perspective=e.perspective+"px",e.container.style.maxWidth=e.maxW+"px",e.container.style.maxHeight=e.maxH+"px",e.container.style.width="100%",e.container.style.height=e.h+"px",e.cube.style.transform="translate3d("+.5*e.w+"px,"+.5*e.h+"px,"+e.perspective+"px) rotateY("+(e.rotY2+180)+"deg)")},__PluginPanorama__.prototype.onMoveEnd=function(t){this.padOn=!1,this.pad.style.cursor="grab"},__PluginPanorama__.prototype.onMove=function(t,e){const a=this;if(t.preventDefault(),e)a.padStartX=t.pageX,a.padStartY=t.pageY,void 0!==t.originalEvent&&void 0!==t.originalEvent.touches&&(a.padStartX=t.originalEvent.touches[0].pageX,a.padStartY=t.originalEvent.touches[0].pageY),a.padOn=!0,a.pad.style.cursor="grabbing",a.autoResume=a.autoResumeTime;else if(a.padOn){a.padEndX=t.pageX,a.padEndY=t.pageY,void 0!==t.originalEvent&&void 0!==t.originalEvent.touches&&(a.padEndX=t.originalEvent.touches[0].pageX,a.padEndY=t.originalEvent.touches[0].pageY);var n=a.padEndX-a.padStartX,o=a.padEndY-a.padStartY;a.padStartX=a.padEndX,a.padStartY=a.padEndY,a.rotY-=.25*n,a.rotX+=.25*o,a.rotX<-89?a.rotX=-89:a.rotX>89&&(a.rotX=89),a.autoResume=a.autoResumeTime}};
-</script>
+<script>"use strict";var __PluginPanorama__=function(t,e,a,n,o,i,s){const d=this;this.id=t,this.maxW=e,this.maxH=a,this.w=0,this.h=0,this.fov=n,this.perspective=521,this.rotY=this.rotY2=o,this.rotX=this.rotX2=0,this.auto=i,this.container=document.getElementById("_p_panorama-"+this.id),this.pad=document.getElementById("_p_panorama_pad-"+this.id),this.cube=document.getElementById("_p_panorama_cube-"+this.id),this.padStartX=0,this.padStartY=0,this.padEndX=0,this.padEndY=0,this.padOn=!1,this.time=0,this.autoResume=0,this.autoResumeTime=s,d.onResize(),d.pad.addEventListener("mousedown",function(t){d.onMove(t,!0)},{passive:!1}),d.pad.addEventListener("touchstart",function(t){d.onMove(t,!0)},{passive:!1}),d.pad.addEventListener("mousemove",function(t){d.onMove(t,!1)},{passive:!1}),d.pad.addEventListener("touchmove",function(t){d.onMove(t,!1)},{passive:!1}),d.pad.addEventListener("mouseup",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("touchend",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("mouseout",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("mouseleave",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("touchleave",function(t){d.onMoveEnd(t)},{passive:!0}),d.pad.addEventListener("touchcancel",function(t){d.onMoveEnd(t)},{passive:!0}),window.addEventListener("resize",function(t){d.onResize(t)}),window.addEventListener("load",function(){requestAnimationFrame(function(t){d.Update(t)})})};__PluginPanorama__.prototype.Update=function(t){const e=this;e.time||(e.time=t-1e3/60);var a=Math.min(t-e.time,100);e.time=t,!e.padOn&&e.auto&&(e.autoResume-=a,e.autoResume<=0&&(e.rotY+=360*e.auto/60*a/1e3,e.rotX-=e.rotX*a/1e4)),e.rotY2+=(e.rotY-e.rotY2)*a/50,e.rotX2+=(e.rotX-e.rotX2)*a/50,e.cube.style.transform="translate3d("+.5*e.w+"px,"+.5*e.h+"px,"+e.perspective+"px) rotateX("+e.rotX2+"deg) rotateY("+(e.rotY2+180)+"deg)",requestAnimationFrame(function(t){e.Update(t)})},__PluginPanorama__.prototype.onResize=function(t){const e=this;var a=Math.min(e.maxW,e.container.clientWidth);e.w!=a&&(e.w=Math.min(e.maxW,e.container.clientWidth),e.h=e.w*e.maxH/e.maxW,e.perspective=Math.pow(.5*e.w*(.5*e.w)+.5*e.h*(.5*e.h),.5)/Math.tan(e.fov*Math.PI/360),e.container.style.perspective=e.perspective+"px",e.container.style.maxWidth=e.maxW+"px",e.container.style.maxHeight=e.maxH+"px",e.container.style.width="100%",e.container.style.height=e.h+"px",e.cube.style.transform="translate3d("+.5*e.w+"px,"+.5*e.h+"px,"+e.perspective+"px) rotateY("+(e.rotY2+180)+"deg)")},__PluginPanorama__.prototype.onMoveEnd=function(t){this.padOn=!1,this.pad.style.cursor="grab"},__PluginPanorama__.prototype.onMove=function(t,e){const a=this;if(t.preventDefault(),e)a.padStartX=t.pageX,a.padStartY=t.pageY,void 0!==t.originalEvent&&void 0!==t.originalEvent.touches&&(a.padStartX=t.originalEvent.touches[0].pageX,a.padStartY=t.originalEvent.touches[0].pageY),a.padOn=!0,a.pad.style.cursor="grabbing",a.autoResume=a.autoResumeTime;else if(a.padOn){a.padEndX=t.pageX,a.padEndY=t.pageY,void 0!==t.originalEvent&&void 0!==t.originalEvent.touches&&(a.padEndX=t.originalEvent.touches[0].pageX,a.padEndY=t.originalEvent.touches[0].pageY);var n=a.padEndX-a.padStartX,o=a.padEndY-a.padStartY;a.padStartX=a.padEndX,a.padStartY=a.padEndY,a.rotY-=.25*n,a.rotX+=.25*o,a.rotX<-89?a.rotX=-89:a.rotX>89&&(a.rotX=89),a.autoResume=a.autoResumeTime}};</script>
 EOT;
 	}
 
-	$body .= <<< EOT
+	$tag = <<< EOT
 <div class="_p_panorama" id="_p_panorama-{$included}">
 	<div class="_p_panorama_cube" id="_p_panorama_cube-{$included}">
 		<div class="_p_panorama_front"  style="width:{$size}px;height:{$size}px;transform:translate3d(-{$hsize}px,-{$hsize}px,{$hsize}px) rotateY(180deg);background-image:url('{$image[0]}')"></div>
@@ -140,12 +138,14 @@ EOT;
 	</div>
 	<div class="_p_panorama_pad" id="_p_panorama_pad-{$included}"></div>
 </div>
-<script>
-new __PluginPanorama__({$included}, {$w}, {$h}, {$fov}, {$rot}, {$auto}, {$autoResume});
-</script>
 EOT;
 
+	$js = "<script>new __PluginPanorama__({$included}, {$w}, {$h}, {$fov}, {$rot}, {$auto}, {$autoResume});</script>";
+
 	$included++;
+
+	$body = $tag . $body . $js;
+	$body = preg_replace("/((\s|\n){1,})/i", ' ', $body);	// 連続空白を単一空白に（※「//」コメント非対応）
 
 	return $body;
 }
